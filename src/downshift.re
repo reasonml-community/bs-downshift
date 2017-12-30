@@ -48,63 +48,59 @@ module ControllerStateAndHelpers = {
   type t;
   /* Getters */
   [@bs.send]
-  external getRootProps : (t, ~options: rootPropsOptions) => any =
-    "getRootProps";
+  external getRootProps : (t, ~options: rootPropsOptions) => any = "";
   [@bs.send]
   external getButtonProps :
     (t, ~options: ReactDOMRe.reactDOMProps=?, unit) => any =
-    "getButtonProps";
+    "";
   [@bs.send]
   external getLabelProps :
     (t, ~options: ReactDOMRe.reactDOMProps=?, unit) => any =
-    "getLabelProps";
+    "";
   [@bs.send]
   external getInputProps :
     (t, ~options: ReactDOMRe.reactDOMProps=?, unit) => any =
-    "getInputProps";
+    "";
   [@bs.send]
-  external itemPropsOptions : (t, ~options: itemPropsOptions) => any =
-    "itemPropsOptions";
+  external itemPropsOptions : (t, ~options: itemPropsOptions) => any = "";
   /* Actions */
-  [@bs.send] external openMenu : (t, ~cb: cb=?, unit) => unit = "openMenu";
-  [@bs.send] external closeMenu : (t, ~cb: cb=?, unit) => unit = "closeMenu";
+  [@bs.send] external openMenu : (t, ~cb: cb=?, unit) => unit = "";
+  [@bs.send] external closeMenu : (t, ~cb: cb=?, unit) => unit = "";
   [@bs.send]
   external toggleMenu :
     (t, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) => unit =
-    "toggleMenu";
+    "";
   [@bs.send]
   external reset :
     (t, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) => unit =
-    "reset";
+    "";
   [@bs.send]
   external selectItem :
     (t, ~item: item, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) =>
     unit =
-    "selectItem";
+    "";
   [@bs.send]
   external selectItemAtIndex :
     (t, ~index: int, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) =>
     unit =
-    "selectItemAtIndex";
+    "";
   [@bs.send]
   external selectHighlightedItem :
     (t, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) => unit =
-    "selectHighlightedItem";
+    "";
   [@bs.send]
   external setHighlightedIndex :
     (t, ~index: int, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) =>
     unit =
-    "setHighlightedIndex";
-  [@bs.send]
-  external clearSelection : (t, ~cb: cb=?, unit) => unit = "clearSelection";
-  [@bs.send] external clearItems : (t, unit) => unit = "clearItems";
-  [@bs.send] external itemToString : (t, item) => unit = "itemToString";
+    "";
+  [@bs.send] external clearSelection : (t, ~cb: cb=?, unit) => unit = "";
+  [@bs.send] external clearItems : (t, unit) => unit = "";
+  [@bs.send] external itemToString : (t, item) => unit = "";
   /* State */
-  [@bs.get]
-  external highlightedIndex : t => Js.Nullable.t(int) = "highlightedIndex";
-  [@bs.get] external inputValue : t => Js.Nullable.t(string) = "inputValue";
-  [@bs.get] external isOpen : t => bool = "isOpen";
-  [@bs.get] external selectedItem : t => item = "selectedItem";
+  [@bs.get] external highlightedIndex : t => Js.Nullable.t(int) = "";
+  [@bs.get] external inputValue : t => Js.Nullable.t(string) = "";
+  [@bs.get] external isOpen : t => bool = "";
+  [@bs.get] external selectedItem : t => item = "";
 };
 
 type stateChangeOptions = {
