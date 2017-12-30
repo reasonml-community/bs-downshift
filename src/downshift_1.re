@@ -64,52 +64,37 @@ module ControllerStateAndHelpers = {
   external itemPropsOptions : (t, ~options: itemPropsOptions) => any =
     "itemPropsOptions";
   /* Actions */
-  [@bs.send]
-  external openMenu : (t, (~cb: cb=?, unit) => unit) => unit = "openMenu";
-  [@bs.send]
-  external closeMenu : (t, (~cb: cb=?, unit) => unit) => unit = "closeMenu";
+  [@bs.send] external openMenu : (t, ~cb: cb=?, unit) => unit = "openMenu";
+  [@bs.send] external closeMenu : (t, ~cb: cb=?, unit) => unit = "closeMenu";
   [@bs.send]
   external toggleMenu :
-    (t, (~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) => unit) => unit =
+    (t, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) => unit =
     "toggleMenu";
   [@bs.send]
   external reset :
-    (t, (~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) => unit) => unit =
+    (t, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) => unit =
     "reset";
   [@bs.send]
   external selectItem :
-    (
-      t,
-      (~item: item, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) =>
-      unit
-    ) =>
+    (t, ~item: item, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) =>
     unit =
     "selectItem";
   [@bs.send]
   external selectItemAtIndex :
-    (
-      t,
-      (~index: int, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) =>
-      unit
-    ) =>
+    (t, ~index: int, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) =>
     unit =
     "selectItemAtIndex";
   [@bs.send]
   external selectHighlightedItem :
-    (t, (~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) => unit) => unit =
+    (t, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) => unit =
     "selectHighlightedItem";
   [@bs.send]
   external setHighlightedIndex :
-    (
-      t,
-      (~index: int, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) =>
-      unit
-    ) =>
+    (t, ~index: int, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) =>
     unit =
     "setHighlightedIndex";
   [@bs.send]
-  external clearSelection : (t, (~cb: cb=?, unit) => unit) => unit =
-    "clearSelection";
+  external clearSelection : (t, ~cb: cb=?, unit) => unit = "clearSelection";
   [@bs.send] external clearItems : (t, unit) => unit = "clearItems";
   [@bs.send] external itemToString : (t, item) => unit = "itemToString";
   /* State */
