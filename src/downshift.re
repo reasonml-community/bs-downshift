@@ -9,8 +9,14 @@ let optionBoolToOptionJsBoolean = opt =>
   | None => None
   };
 
+external toJsObj : any => Js.t({..}) = "%identity";
+
 /* Types for Downshift API */
 type item = any;
+
+type otherStateToSet = Js.Dict.t(string);
+
+type cb = unit => unit;
 
 type itemToString = item => string;
 
@@ -38,31 +44,67 @@ type itemPropsOptions = {
   "item": any
 };
 
-type controllerStateAndHelpers = {
-  .
+module ControllerStateAndHelpers = {
+  type t;
   /* Getters */
-  "getRootProps": [@bs.meth] (rootPropsOptions => any),
-  "getButtonProps": [@bs.meth] (ReactDOMRe.reactDOMProps => any),
-  "getLabelProps": [@bs.meth] (ReactDOMRe.reactDOMProps => any),
-  "getInputProps": [@bs.meth] (ReactDOMRe.reactDOMProps => any),
-  "getItemProps": [@bs.meth] (itemPropsOptions => any),
+  [@bs.send]
+  external getRootProps : (t, ~options: rootPropsOptions) => any =
+    "getRootProps";
+  [@bs.send]
+  external getButtonProps :
+    (t, ~options: ReactDOMRe.reactDOMProps=?, unit) => any =
+    "getButtonProps";
+  [@bs.send]
+  external getLabelProps :
+    (t, ~options: ReactDOMRe.reactDOMProps=?, unit) => any =
+    "getLabelProps";
+  [@bs.send]
+  external getInputProps :
+    (t, ~options: ReactDOMRe.reactDOMProps=?, unit) => any =
+    "getInputProps";
+  [@bs.send]
+  external itemPropsOptions : (t, ~options: itemPropsOptions) => any =
+    "itemPropsOptions";
   /* Actions */
-  "openMenu": [@bs.meth] (unit => unit),
-  "closeMenu": [@bs.meth] (unit => unit),
-  "toggleMenu": [@bs.meth] (unit => unit),
-  "reset": [@bs.meth] (unit => unit),
-  "selectItem": [@bs.meth] (item => unit),
-  "selectItemAtIndex": [@bs.meth] (int => unit),
-  "selectHighlightedItem": [@bs.meth] (unit => unit),
-  "setHighlightedIndex": [@bs.meth] (int => unit),
-  "clearSelection": [@bs.meth] (unit => unit),
-  "clearItems": [@bs.meth] (unit => unit),
-  "itemToString": [@bs.meth] (any => unit),
+  [@bs.send] external openMenu : (t, ~cb: cb=?, unit) => unit = "openMenu";
+  [@bs.send] external closeMenu : (t, ~cb: cb=?, unit) => unit = "closeMenu";
+  [@bs.send]
+  external toggleMenu :
+    (t, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) => unit =
+    "toggleMenu";
+  [@bs.send]
+  external reset :
+    (t, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) => unit =
+    "reset";
+  [@bs.send]
+  external selectItem :
+    (t, ~item: item, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) =>
+    unit =
+    "selectItem";
+  [@bs.send]
+  external selectItemAtIndex :
+    (t, ~index: int, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) =>
+    unit =
+    "selectItemAtIndex";
+  [@bs.send]
+  external selectHighlightedItem :
+    (t, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) => unit =
+    "selectHighlightedItem";
+  [@bs.send]
+  external setHighlightedIndex :
+    (t, ~index: int, ~otherStateToSet: otherStateToSet=?, ~cb: cb=?, unit) =>
+    unit =
+    "setHighlightedIndex";
+  [@bs.send]
+  external clearSelection : (t, ~cb: cb=?, unit) => unit = "clearSelection";
+  [@bs.send] external clearItems : (t, unit) => unit = "clearItems";
+  [@bs.send] external itemToString : (t, item) => unit = "itemToString";
   /* State */
-  "highlightedIndex": Js.nullable(int),
-  "inputValue": Js.nullable(string),
-  "isOpen": bool,
-  "selectedItem": any
+  [@bs.get]
+  external highlightedIndex : t => Js.Nullable.t(int) = "highlightedIndex";
+  [@bs.get] external inputValue : t => Js.Nullable.t(string) = "inputValue";
+  [@bs.get] external isOpen : t => bool = "isOpen";
+  [@bs.get] external selectedItem : t => item = "selectedItem";
 };
 
 type stateChangeOptions = {
@@ -74,22 +116,22 @@ type stateChangeOptions = {
 };
 
 type onChange =
-  (~selectedItem: any, ~stateAndHelpers: controllerStateAndHelpers) => unit;
+  (~selectedItem: any, ~stateAndHelpers: ControllerStateAndHelpers.t) => unit;
 
 type onSelect =
-  (~selectedItem: any, ~stateAndHelpers: controllerStateAndHelpers) => unit;
+  (~selectedItem: any, ~stateAndHelpers: ControllerStateAndHelpers.t) => unit;
 
 type onStateChange =
   (
     ~changes: stateChangeOptions,
-    ~stateAndHelpers: controllerStateAndHelpers
+    ~stateAndHelpers: ControllerStateAndHelpers.t
   ) =>
   unit;
 
 type onInputValueChange =
-  (~inputValue: string, ~stateAndHelpers: controllerStateAndHelpers) => unit;
+  (~inputValue: string, ~stateAndHelpers: ControllerStateAndHelpers.t) => unit;
 
-type renderFunc = controllerStateAndHelpers => ReasonReact.reactElement;
+type renderFunc = ControllerStateAndHelpers.t => ReasonReact.reactElement;
 
 /* Expose the React component with the mapped props */
 [@bs.module "downshift"]
