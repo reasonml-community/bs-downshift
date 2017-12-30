@@ -14,6 +14,10 @@ core-js@^1.0.0:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
 
+downshift@^1.22.5:
+  version "1.22.5"
+  resolved "https://registry.yarnpkg.com/downshift/-/downshift-1.22.5.tgz#48103b2f80259157b01b96d6bdc344c51ce0743e"
+
 encoding@^0.1.11:
   version "0.1.12"
   resolved "https://registry.yarnpkg.com/encoding/-/encoding-0.1.12.tgz#538b66f3ee62cd1ab51ec323829d1f9480c74beb"
@@ -91,7 +95,7 @@ prop-types@^15.6.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-"react@>=15.0.0 || >=16.0.0":
+"react@>=15.0.0 || >=16.0.0", react@^16.2.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
   dependencies:

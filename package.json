@@ -23,6 +23,9 @@
   },
   "devDependencies": {
     "bs-platform": "^2.1.0",
+    "downshift": "^1.22.5",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
     "reason-react": "^0.3.0"
   },
   "keywords": ["BuckleScript", "Downshift", "React", "Reason"]
