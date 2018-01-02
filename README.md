@@ -27,4 +27,4 @@ Add `bs-downshift` to your `bs-dependencies`: **bsconfig.json**
 
 ## Usage
 
-_Coming soon_
+See [examples](#examples) folder

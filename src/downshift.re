@@ -9,6 +9,8 @@ let optionBoolToOptionJsBoolean = opt =>
   | None => None
   };
 
+external toAny : 'a => any = "%identity";
+
 external toJsObj : any => Js.t({..}) = "%identity";
 
 /* Types for Downshift API */
@@ -47,8 +49,7 @@ type itemPropsOptions = {
 module ControllerStateAndHelpers = {
   type t;
   /* Getters */
-  [@bs.send]
-  external getRootProps : (t, ~options: rootPropsOptions) => any = "";
+  [@bs.send] external getRootProps : (t, rootPropsOptions) => any = "";
   [@bs.send]
   external getButtonProps :
     (t, ~options: ReactDOMRe.reactDOMProps=?, unit) => any =
@@ -61,6 +62,7 @@ module ControllerStateAndHelpers = {
   external getInputProps :
     (t, ~options: ReactDOMRe.reactDOMProps=?, unit) => any =
     "";
+  [@bs.send] external getItemProps : (t, itemPropsOptions) => any = "";
   [@bs.send]
   external itemPropsOptions : (t, ~options: itemPropsOptions) => any = "";
   /* Actions */
@@ -111,21 +113,13 @@ type stateChangeOptions = {
   "selectedItem": item
 };
 
-type onChange =
-  (~selectedItem: any, ~stateAndHelpers: ControllerStateAndHelpers.t) => unit;
+type onChange = (any, ControllerStateAndHelpers.t) => unit;
 
-type onSelect =
-  (~selectedItem: any, ~stateAndHelpers: ControllerStateAndHelpers.t) => unit;
+type onSelect = (any, ControllerStateAndHelpers.t) => unit;
 
-type onStateChange =
-  (
-    ~changes: stateChangeOptions,
-    ~stateAndHelpers: ControllerStateAndHelpers.t
-  ) =>
-  unit;
+type onStateChange = (stateChangeOptions, ControllerStateAndHelpers.t) => unit;
 
-type onInputValueChange =
-  (~inputValue: string, ~stateAndHelpers: ControllerStateAndHelpers.t) => unit;
+type onInputValueChange = (string, ControllerStateAndHelpers.t) => unit;
 
 type renderFunc = ControllerStateAndHelpers.t => ReasonReact.reactElement;
 
