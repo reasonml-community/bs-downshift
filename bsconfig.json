@@ -1,6 +1,15 @@
 {
   "name": "bs-downshift",
-  "sources": ["src"],
+  "sources": [
+    {
+      "dir": "src",
+      "public": "all"
+    },
+    {
+      "dir": "examples",
+      "type": "dev"
+    }
+  ],
   "bs-dependencies": ["reason-react"],
   "bsc-flags": ["-bs-super-errors"],
   "reason": {
