@@ -4,8 +4,9 @@
 
 [![npm](https://img.shields.io/npm/v/bs-downshift.svg)](https://npmjs.org/bs-downshift)
 [![Issues](https://img.shields.io/github/issues/reasonml-community/bs-downshift.svg)](https://github.com/reasonml-community/bs-downshift/issues)
+[![Dependencies](https://img.shields.io/david/peer/reasonml-community/bs-downshift.svg)](https://github.com/reasonml-community/bs-downshift/blob/master/package.json)
+[![Issues](https://img.shields.io/github/issues/reasonml-community/bs-downshift.svg)](https://github.com/reasonml-community/bs-downshift/issues)
 [![Last Commit](https://img.shields.io/github/last-commit/reasonml-community/bs-downshift.svg)]()
-[![Size](https://img.shields.io/github/size/reasonml-community/bs-downshift/lib/js/src/Fetch.js.svg)]()
 
 ## Demo
 
