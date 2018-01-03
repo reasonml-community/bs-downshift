@@ -17,6 +17,8 @@ module BasicAutocomplete = {
                  */
                 ReasonReact.cloneElement(
                   <input />,
+                  /* The method `getInputProps` returns a type `any`, we simply
+                     cast it to a `{..}` type. */
                   ~props=
                     Downshift.toJsObj(
                       Downshift.ControllerStateAndHelpers.getInputProps(
