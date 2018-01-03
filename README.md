@@ -32,7 +32,7 @@ Add `bs-downshift` to your `bs-dependencies`: **bsconfig.json**
 
 ## Usage
 
-See [examples](#examples) folder.
+See [examples](./examples) folder.
 
 ### Usage of `render` function
 
@@ -51,4 +51,4 @@ render=(
 )
 ```
 
-You can see that in the [examples](#examples) folder.
+You can see that in the [examples](./examples) folder.
