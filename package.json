@@ -1,5 +1,4 @@
 {
-  "private": true,
   "name": "bs-downshift",
   "version": "0.1.0",
   "description": "BuckleScript bindings for Downshift",
