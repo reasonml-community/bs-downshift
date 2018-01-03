@@ -1,6 +1,6 @@
 # `bs-downshift`
 
-[BuckleScript](https://github.com/bucklescript/bucklescript) bindings for [Downshift](https://github.com/paypal/downshift) - **WIP**
+[BuckleScript](https://github.com/bucklescript/bucklescript) bindings for [Downshift](https://github.com/paypal/downshift)
 
 ## Demo
 
