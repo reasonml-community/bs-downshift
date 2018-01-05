@@ -1,5 +1,6 @@
 {
   "name": "bs-downshift",
+  "namespace": true,
   "sources": [
     {
       "dir": "src",
