@@ -100,10 +100,8 @@ module BasicAutocomplete = {
                                         Downshift.toJsObj(
                                           Downshift.ControllerStateAndHelpers.getItemProps(
                                             t,
-                                            {
-                                              "item": Downshift.toAny(item),
-                                              "index": Some(0)
-                                            }
+                                            ~item=Downshift.toAny(item),
+                                            ()
                                           )
                                         ),
                                       [|ReasonReact.stringToElement(item)|]
