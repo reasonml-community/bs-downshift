@@ -34,7 +34,7 @@ type rootPropsOptions = {. "refKey": string};
 
 type itemPropsOptions = {
   .
-  "index": option(int),
+  "index": Js.Nullable.t(int),
   "item": any
 };
 
@@ -53,7 +53,7 @@ module ControllerStateAndHelpers: {
   external getInputProps :
     (t, ~options: ReactDOMRe.reactDOMProps=?, unit) => any =
     "";
-  [@bs.send] external getItemProps : (t, itemPropsOptions) => any = "";
+  [@bs.send] external extGetItemProps : (t, itemPropsOptions) => any = "";
   [@bs.send]
   external itemPropsOptions : (t, ~options: itemPropsOptions) => any = "";
   [@bs.send] external openMenu : (t, ~cb: cb=?, unit) => unit = "";
@@ -92,6 +92,7 @@ module ControllerStateAndHelpers: {
   [@bs.get] external inputValue : t => Js.Nullable.t(string) = "";
   [@bs.get] external isOpen : t => bool = "";
   [@bs.get] external selectedItem : t => item = "";
+  let getItemProps: (t, ~item: any, ~index: int=?, unit) => any;
 };
 
 type stateChangeOptions = {
