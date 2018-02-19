@@ -1,6 +1,6 @@
 {
   "name": "bs-downshift",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "BuckleScript bindings for Downshift",
   "license": "MIT",
   "author": "Nicola Molinari <me@emmenko.org> (http://emmenko.org)",
