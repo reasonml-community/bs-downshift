@@ -97,6 +97,7 @@ module ControllerStateAndHelpers: {
 
 type stateChangeOptions = {
   .
+  "type": string,
   "highlightedIndex": int,
   "inputValue": string,
   "isOpen": bool,
