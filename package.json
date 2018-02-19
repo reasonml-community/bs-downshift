@@ -16,9 +16,11 @@
     "clean": "bsb -clean-world",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "peerDependencies": {
-    "bs-platform": "^2.1.0",
+  "dependencies": {
     "downshift": "^1.22.5"
+  },
+  "peerDependencies": {
+    "bs-platform": "^2.1.0"
   },
   "devDependencies": {
     "bs-platform": "^2.1.0",
