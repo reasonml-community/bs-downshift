@@ -143,3 +143,6 @@ let make:
     ReasonReact.noRetainedProps,
     ReasonReact.actionless
   );
+
+[@bs.module "downshift"]
+external resetIdCounter : unit => unit = "resetIdCounter";
