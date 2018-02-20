@@ -1,3 +1,7 @@
+# v0.2.0
+
+Compatible with `downshift` [v1.25.0](https://github.com/paypal/downshift/releases/tag/v1.25.0).
+
 # v0.1.1
 
 ### Bug fixes
