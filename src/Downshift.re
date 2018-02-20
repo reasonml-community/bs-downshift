@@ -184,3 +184,6 @@ let make =
     },
     [||]
   );
+
+[@bs.module "downshift"]
+external resetIdCounter : unit => unit = "resetIdCounter";

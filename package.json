@@ -17,14 +17,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "downshift": "1.23.0"
+    "downshift": "1.25.0"
   },
   "peerDependencies": {
     "bs-platform": "^2.2.1"
   },
   "devDependencies": {
     "bs-platform": "^2.2.1",
-    "downshift": "1.23.0",
+    "downshift": "1.25.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "reason-react": "^0.3.2"
