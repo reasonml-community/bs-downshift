@@ -2,13 +2,6 @@
 type any;
 
 /* Helpers */
-let optionBoolToOptionJsBoolean = opt =>
-  switch opt {
-  | Some(true) => Some(Js.true_)
-  | Some(false) => Some(Js.false_)
-  | None => None
-  };
-
 external toAny : 'a => any = "%identity";
 
 external toJsObj : any => Js.t({..}) = "%identity";
@@ -33,7 +26,7 @@ type a11yStatusMessageOptions = {
   "itemToString": itemToString,
   "previousResultCount": int,
   "resultCount": int,
-  "selectedItem": item
+  "selectedItem": item,
 };
 
 type getA11yStatusMessage = a11yStatusMessageOptions => string;
@@ -43,7 +36,7 @@ type rootPropsOptions = {. "refKey": string};
 type itemPropsOptions = {
   .
   "index": Js.Nullable.t(int),
-  "item": any
+  "item": any,
 };
 
 module ControllerStateAndHelpers = {
@@ -104,7 +97,10 @@ module ControllerStateAndHelpers = {
   [@bs.get] external isOpen : t => bool = "";
   [@bs.get] external selectedItem : t => item = "";
   let getItemProps = (t, ~item: any, ~index=?, ()) : any => {
-    let itemPropsOpt = {"item": item, "index": Js.Nullable.from_opt(index)};
+    let itemPropsOpt = {
+      "item": item,
+      "index": Js.Nullable.fromOption(index),
+    };
     extGetItemProps(t, itemPropsOpt);
   };
 };
@@ -115,7 +111,7 @@ type stateChangeOptions = {
   "highlightedIndex": int,
   "inputValue": string,
   "isOpen": bool,
-  "selectedItem": item
+  "selectedItem": item,
 };
 
 type onChange = (any, ControllerStateAndHelpers.t) => unit;
@@ -154,35 +150,37 @@ let make =
       ~id: option(string)=?,
       ~environment: option(Dom.window)=?,
       ~onOuterClick: option(unit => unit)=?,
-      _children
+      _children,
     ) =>
   ReasonReact.wrapJsForReason(
     ~reactClass,
     ~props={
-      "defaultSelectedItem": Js.Null_undefined.from_opt(defaultSelectedItem),
+      "defaultSelectedItem":
+        Js.Null_undefined.fromOption(defaultSelectedItem),
       "defaultHighlightedIndex":
-        Js.Null_undefined.from_opt(defaultHighlightedIndex),
-      "defaultInputValue": Js.Null_undefined.from_opt(defaultInputValue),
-      "defaultIsOpen":
-        Js.Null_undefined.from_opt(optionBoolToOptionJsBoolean(defaultIsOpen)),
-      "itemToString": Js.Null_undefined.from_opt(itemToString),
-      "selectedItemChanged": Js.Null_undefined.from_opt(selectedItemChanged),
-      "getA11yStatusMessage": Js.Null_undefined.from_opt(getA11yStatusMessage),
-      "onChange": Js.Null_undefined.from_opt(onChange),
-      "onSelect": Js.Null_undefined.from_opt(onSelect),
-      "onStateChange": Js.Null_undefined.from_opt(onStateChange),
-      "onInputValueChange": Js.Null_undefined.from_opt(onInputValueChange),
-      "itemCount": Js.Null_undefined.from_opt(itemCount),
-      "highlightedIndex": Js.Null_undefined.from_opt(highlightedIndex),
-      "inputValue": Js.Null_undefined.from_opt(inputValue),
-      "isOpen": Js.Null_undefined.from_opt(optionBoolToOptionJsBoolean(isOpen)),
-      "selectedItem": Js.Null_undefined.from_opt(selectedItem),
+        Js.Null_undefined.fromOption(defaultHighlightedIndex),
+      "defaultInputValue": Js.Null_undefined.fromOption(defaultInputValue),
+      "defaultIsOpen": Js.Null_undefined.fromOption(defaultIsOpen),
+      "itemToString": Js.Null_undefined.fromOption(itemToString),
+      "selectedItemChanged":
+        Js.Null_undefined.fromOption(selectedItemChanged),
+      "getA11yStatusMessage":
+        Js.Null_undefined.fromOption(getA11yStatusMessage),
+      "onChange": Js.Null_undefined.fromOption(onChange),
+      "onSelect": Js.Null_undefined.fromOption(onSelect),
+      "onStateChange": Js.Null_undefined.fromOption(onStateChange),
+      "onInputValueChange": Js.Null_undefined.fromOption(onInputValueChange),
+      "itemCount": Js.Null_undefined.fromOption(itemCount),
+      "highlightedIndex": Js.Null_undefined.fromOption(highlightedIndex),
+      "inputValue": Js.Null_undefined.fromOption(inputValue),
+      "isOpen": Js.Null_undefined.fromOption(isOpen),
+      "selectedItem": Js.Null_undefined.fromOption(selectedItem),
       "render": render,
-      "id": Js.Null_undefined.from_opt(id),
-      "environment": Js.Null_undefined.from_opt(environment),
-      "onOuterClick": Js.Null_undefined.from_opt(onOuterClick)
+      "id": Js.Null_undefined.fromOption(id),
+      "environment": Js.Null_undefined.fromOption(environment),
+      "onOuterClick": Js.Null_undefined.fromOption(onOuterClick),
     },
-    [||]
+    [||],
   );
 
 [@bs.module "downshift"]

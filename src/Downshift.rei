@@ -1,7 +1,5 @@
 type any;
 
-let optionBoolToOptionJsBoolean: option(bool) => option(Js.boolean);
-
 external toAny : 'a => any = "%identity";
 
 external toJsObj : any => Js.t({..}) = "%identity";
