@@ -26,20 +26,22 @@ module BasicAutocomplete = {
                         ~options=
                           ReactDOMRe.props(
                             ~placeholder="Favorite color ?",
-                            ()
+                            (),
                           ),
-                        ()
-                      )
+                        (),
+                      ),
                     ),
-                  [||]
+                  [||],
                 )
               )
               (
                 if (Downshift.ControllerStateAndHelpers.isOpen(t)) {
                   <div
-                    style=(ReactDOMRe.Style.make(~border="1px solid #ccc", ()))>
+                    style=(
+                      ReactDOMRe.Style.make(~border="1px solid #ccc", ())
+                    )>
                     (
-                      ReasonReact.arrayToElement(
+                      ReasonReact.array(
                         {
                           let index = ref(0);
                           /* NOTE: I'm using `Array.fold_left` because
@@ -49,18 +51,18 @@ module BasicAutocomplete = {
                             (filteredArray, item) => {
                               index := index^ + 1;
                               let inputValue =
-                                Js.Nullable.to_opt(
+                                Js.Nullable.toOption(
                                   Downshift.ControllerStateAndHelpers.inputValue(
-                                    t
-                                  )
+                                    t,
+                                  ),
                                 );
                               let shouldFilterItem =
-                                switch inputValue {
+                                switch (inputValue) {
                                 | None => true
                                 | Some(v) =>
                                   Js.String.includes(
                                     String.lowercase(v),
-                                    String.lowercase(item)
+                                    String.lowercase(item),
                                   )
                                 };
                               shouldFilterItem ?
@@ -68,7 +70,7 @@ module BasicAutocomplete = {
                                 {
                                   let backgroundColor =
                                     if (Downshift.ControllerStateAndHelpers.highlightedIndex(
-                                          t
+                                          t,
                                         )
                                         == Js.Nullable.return(index^)) {
                                       "gray";
@@ -77,7 +79,7 @@ module BasicAutocomplete = {
                                     };
                                   let fontWeight =
                                     if (Downshift.ControllerStateAndHelpers.selectedItem(
-                                          t
+                                          t,
                                         )
                                         == Downshift.toAny(item)) {
                                       "bold";
@@ -92,7 +94,7 @@ module BasicAutocomplete = {
                                           ReactDOMRe.Style.make(
                                             ~backgroundColor,
                                             ~fontWeight,
-                                            ()
+                                            (),
                                           )
                                         )
                                       />,
@@ -101,28 +103,28 @@ module BasicAutocomplete = {
                                           Downshift.ControllerStateAndHelpers.getItemProps(
                                             t,
                                             ~item=Downshift.toAny(item),
-                                            ()
-                                          )
+                                            (),
+                                          ),
                                         ),
-                                      [|ReasonReact.stringToElement(item)|]
+                                      [|ReasonReact.string(item)|],
                                     );
                                   Array.append(filteredArray, [|elem|]);
                                 };
                             },
                             [||],
-                            items
+                            items,
                           );
-                        }
+                        },
                       )
                     )
                   </div>;
                 } else {
-                  ReasonReact.nullElement;
+                  ReasonReact.null;
                 }
               )
             </div>
         )
-      />
+      />,
   };
 };
 
@@ -134,6 +136,6 @@ module App = {
       <BasicAutocomplete
         items=[|"apple", "orange", "carrot"|]
         onChange=((selectedItem, _stateAndHelpers) => Js.log(selectedItem))
-      />
+      />,
   };
 };
