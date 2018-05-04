@@ -1,3 +1,10 @@
+# v1.0.0
+
+### Maintenance
+
+* upgrade to `bs-platform` version `3`
+* upgrade to `reason-react` version `0.4`
+
 # v0.2.0
 
 Compatible with `downshift` [v1.25.0](https://github.com/paypal/downshift/releases/tag/v1.25.0).
