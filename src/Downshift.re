@@ -55,7 +55,7 @@ module ControllerStateAndHelpers = {
   external getInputProps :
     (t, ~options: ReactDOMRe.reactDOMProps=?, unit) => any =
     "";
-  [@bs.send] external extGetItemProps : (t, itemPropsOptions) => any = "";
+  [@bs.send] external extGetItemProps : (t, itemPropsOptions) => any = "getItemProps";
   [@bs.send]
   external itemPropsOptions : (t, ~options: itemPropsOptions) => any = "";
   /* Actions */
