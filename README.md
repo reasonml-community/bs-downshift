@@ -12,6 +12,12 @@
 
 _Coming soon_
 
+## Compatibility with original `downshift` library
+
+Compatible with `downshift` [v1.25.0](https://github.com/paypal/downshift/releases/tag/v1.25.0).
+
+> Using newer versions of `downshift` might break the bindings as the API might have changed. Use at your own risk.
+
 ## Install and setup
 
 #### yarn
