@@ -1,3 +1,11 @@
+# v1.0.1
+
+### Bug fixes
+
+* fix: external `extGetItemProps` should bind to `getItemProps` ([#9] by @kgoggin)
+
+[#9]: https://github.com/reasonml-community/bs-downshift/pull/9
+
 # v1.0.0
 
 ### Maintenance
