@@ -1,6 +1,6 @@
 {
   "name": "bs-downshift",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "BuckleScript bindings for Downshift",
   "license": "MIT",
   "author": "Nicola Molinari <me@emmenko.org> (http://emmenko.org)",
@@ -29,5 +29,10 @@
     "react": "^16.3.2",
     "reason-react": "^0.4.1"
   },
-  "keywords": ["BuckleScript", "Downshift", "React", "Reason"]
+  "keywords": [
+    "BuckleScript",
+    "Downshift",
+    "React",
+    "Reason"
+  ]
 }
